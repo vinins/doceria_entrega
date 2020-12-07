@@ -45,12 +45,6 @@ public class App implements Watcher {
     }
     
 
-
-
-
-
-
-    //Criação da Fila de pedidos, criando um znode novo 
     static public class Queue extends App {
 
 		Queue(String address, String name){
@@ -76,7 +70,7 @@ public class App implements Watcher {
 
 			try{
 
-				// Converte o objeto Pedido em array de bytes
+				
 				ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
 				ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
 				objectOutputStream.writeObject(pedido);
@@ -94,7 +88,7 @@ public class App implements Watcher {
 
         }
         
-		// Remove o processo (pedido) da fila, calcular o preço total e exibe os dados do pedido.
+		
 		Pedido consume() throws KeeperException, InterruptedException {
 
 			Pedido pedido = null;
