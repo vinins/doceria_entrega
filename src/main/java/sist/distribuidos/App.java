@@ -85,7 +85,6 @@ public class App implements Watcher {
 			zk.create("/"+root+"/pedido", b, Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL_SEQUENTIAL);
 
 			return true;
-
         }
         
 		
@@ -118,9 +117,7 @@ public class App implements Watcher {
 						byte b[] = zk.getData("/"+root+"/"+minString, false, stat);
 						zk.delete("/"+root+"/"+minString, 0);
 
-						try{
-
-							
+						try{	
 							ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(b);
 							ObjectInputStream objectInputStream = new ObjectInputStream(byteArrayInputStream);
 							pedido = (Pedido) objectInputStream.readObject();
@@ -133,18 +130,11 @@ public class App implements Watcher {
 						}catch(ClassNotFoundException e){
 							e.printStackTrace();
 						}
-
 					}
-
 				}
-
 			}
-
 		}
-
     }
-
-
 
     public static void main(String args[]) throws Exception {
 
@@ -300,19 +290,5 @@ public class App implements Watcher {
 
 		System.out.println("Sair");
 
-	}
-    
-
-
-
-
-
-
-
-
-
-
-
-
-    
+	}   
 }
